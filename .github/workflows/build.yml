@@ -45,15 +45,19 @@ jobs:
       - name: Get Flutter Dependencies
         run: flutter pub get
 
-      # ── 6. Analyze code (non-blocking) ──────────────────────────────────
+      # ── 6. Generate App Icons ───────────────────────────────────────────
+      - name: Generate App Icons
+        run: dart run flutter_launcher_icons
+
+      # ── 7. Analyze code (non-blocking) ──────────────────────────────────
       - name: Analyze Code
         run: flutter analyze --no-fatal-infos || true
 
-      # ── 7. Run tests (if any) ────────────────────────────────────────────
+      # ── 8. Run tests (if any) ────────────────────────────────────────────
       - name: Run Tests
         run: flutter test || true
 
-      # ── 8. Build release APK ────────────────────────────────────────────
+      # ── 9. Build release APK ────────────────────────────────────────────
       - name: Build Release APK
         run: |
           flutter build apk \
@@ -62,7 +66,7 @@ jobs:
             --build-name=1.0.0 \
             --build-number=${{ github.run_number }}
 
-      # ── 9. Rename APK with version info ─────────────────────────────────
+      # ── 10. Rename APK with version info ─────────────────────────────────
       - name: Rename APK
         run: |
           mkdir -p output
@@ -71,7 +75,7 @@ jobs:
           echo "APK built successfully!"
           ls -lh output/
 
-      # ── 10. Upload APK as artifact ───────────────────────────────────────
+      # ── 11. Upload APK as artifact ───────────────────────────────────────
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -79,7 +83,7 @@ jobs:
           path: output/AshwiniKhata-v1.0.0-build${{ github.run_number }}.apk
           retention-days: 30
 
-      # ── 11. Create GitHub Release on version tags ────────────────────────
+      # ── 12. Create GitHub Release on version tags ────────────────────────
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
