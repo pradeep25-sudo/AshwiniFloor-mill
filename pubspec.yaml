@@ -1,0 +1,62 @@
+name: ashwini_khata
+description: Ashwini Khata - Flour Mill Business Management App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Database
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Image Picker
+  image_picker: ^1.0.7
+  
+  # Speech Recognition
+  speech_to_text: ^6.6.0
+  
+  # Permissions
+  permission_handler: ^11.3.0
+  
+  # File management / Backup
+  path_provider: ^2.1.2
+  share_plus: ^7.2.2
+  file_picker: ^6.1.1
+  
+  # UI
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.1
+  
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.3.3
+  
+  # Icons
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+flutter_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/app_icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/app_icon_fg.png"
