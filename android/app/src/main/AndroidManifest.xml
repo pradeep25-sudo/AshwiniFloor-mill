@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -16,7 +15,6 @@
         android:label="अश्विनी खाता"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
@@ -41,7 +39,6 @@
             </intent-filter>
         </activity>
 
-        <!-- File provider for image picker -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -57,10 +54,9 @@
             android:value="2" />
     </application>
 
-    <!-- Speech recognition -->
     <queries>
         <intent>
             <action android:name="android.speech.RecognitionService" />
         </intent>
-    </queries>
+    </queries>  
 </manifest>
